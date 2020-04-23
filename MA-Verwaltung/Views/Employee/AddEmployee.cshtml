@@ -1,0 +1,120 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "AddEmployee";
+}
+
+
+<div class="row">
+
+    <div class="col-12">
+        <h2>Hier findet die Datenerfassung von Mitarbeitern statt:</h2>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-12">
+
+        <form asp-controller="Employee" asp-action="AddEmployee" method="post" enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <label>Vorname:</label>
+                <input asp-for="@Model.Vorname" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Nachname:</label>
+                <input asp-for="@Model.Nachname" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Gehalt:</label>
+                <input asp-for="@Model.Salary" class=" form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Abteilung:</label>
+                <input name="Abteilung" class=" form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Beruf:</label>
+                <input name="Beruf" class=" form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Fachgebiet:</label>
+                <input name="Fachgebiet" class=" form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Zuständigkeiten (Bitte kommasepariert ohne Leerzeichen angeben) :</label>
+                <input name="Zuständigkeiten" class=" form-control" />
+            </div>
+
+
+            <h2>Adresse:</h2>
+            <div class="form-group">
+                <label>Straße</label>
+                <input name="Addresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Plz</label>
+                <input name="Addresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Stadt</label>
+                <input name="Addresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Land</label>
+                <input name="Addresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Datenerfassung beenden" />
+            </div>
+
+            <!--
+            <h2>Zusatzadresse:</h2>
+            <div class="form-group">
+                <label>Straße</label>
+                <input name="ZAddresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Plz</label>
+                <input name="ZAddresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Stadt</label>
+                <input name="ZAddresses" class=" form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Land</label>
+                <input name="ZAddresses" class=" form-control" />
+            </div>
+            -->
+
+        </form>
+
+    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Zurück zur Startseite</a>
+
+</div>
+
+</div>
+

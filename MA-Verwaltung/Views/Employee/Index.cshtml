@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Employee>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vorname</th>
+            <th scope="col">Nachname</th>
+            <th scope="col">Gehalt</th>
+            <th scope="col">Abteilung</th>
+            <th scope="col">Beruf</th>
+            <th scope="col">Fachgebiet</th>
+            <th scope="col">Zuständigkeiten</th>
+            <th scope="col">Addresse</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Employee employee in @Model)
+        {
+        <tr>
+            <th scope="row">@employee.EmployeeId</th>
+            <td scope="col">@employee.Vorname</td>
+            <td scope="col">@employee.Nachname</td>
+            <td scope="col">@employee.Salary</td>
+            <td scope="col">@employee.Department.Bezeichnung</td>
+
+            <td scope="col">
+
+                @employee.Employee_Rolls.ToList()[0].Roll.Occupation
+            </td>
+
+            <td scope="col">
+                @employee.Employee_Rolls.ToList()[0].Roll.Fachgebiet
+            </td>
+
+            <td scope="col">
+                @foreach (Employee_Roll er in employee.Employee_Rolls)
+                {
+                    <ul class="employee_rollen">
+                        <li>@er.Roll.Rolle </li>
+                    </ul>
+                }
+            </td>
+
+            <td scope="col">
+
+                @foreach (Address address in employee.Addresses)
+                {
+                    <ul class="employee_adress">
+                        <li><strong>Straße : </strong>@address.Strasse</li>
+                        <li><strong>PLZ    : </strong>@address.Plz</li>
+                        <li><strong>Stadt  : </strong>@address.Stadt</li>
+                        <li><strong>Land   : </strong>@address.Land</li>
+                    </ul>
+                }
+
+            </td>
+
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a class="btn btn-success" asp-controller="Employee" asp-action="AddEmployee">Neuen Mitarbeiter hinzufügen</a>
+<a class="btn btn-success" asp-controller="Home" asp-action="Index">Zurück zur Startseite</a>
